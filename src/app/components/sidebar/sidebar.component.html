@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    (click)="toggleSidenav()"
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Define Labs</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+    <mat-drawer-container color="primary" class="example-container">
+        <mat-drawer class="detail-drawer" mode="side" [opened]="isShowing">
+          <mat-list role="list" *ngIf="isShowing">
+            <mat-list-item role="listitem">
+              <button 
+              mat-icon-button (click)="toggleView(true)"
+              class="example-icon message-icon"
+              aria-label="Example icon-button with message icon">
+                  <mat-icon>message</mat-icon> All Matches    
+              </button> 
+            </mat-list-item>
+            <mat-list-item role="listitem"><button
+              mat-icon-button (click)="toggleView(false)"
+              class="example-icon star-icon"
+              aria-label="Example icon-button with star icon">
+                  <mat-icon>star</mat-icon> Saved matches
+              </button>
+          </mat-list-item>
+          </mat-list>
+        </mat-drawer>
+        <mat-drawer-content>
+            <app-matches [allMatchesT]="allMatchesToggle"></app-matches>
+        </mat-drawer-content>
+    </mat-drawer-container>
